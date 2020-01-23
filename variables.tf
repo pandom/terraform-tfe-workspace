@@ -1,0 +1,11 @@
+variable owner {}
+variable name {}
+variable slug {}
+variable project_key {}
+variable description {}
+variable is_private {}
+variable workspace_name {}
+variable org_name {}
+variable auto_apply {}
+variable branch {}
+variable oauth_token_id {}
