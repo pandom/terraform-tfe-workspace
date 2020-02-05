@@ -20,9 +20,9 @@ variable repository_description {
   default = "Created by Terraform Enterprise."
 }
 variable repository_is_private {
-  type = string
+  type = boolean
   description = "Whether the repository should be private."
-  default = "False"
+  default = False
 }
 variable tfe_workspace_name {
   type = string
