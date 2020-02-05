@@ -22,7 +22,7 @@ variable repository_description {
 variable repository_is_private {
   type = boolean
   description = "Whether the repository should be private."
-  default = False
+  default = false
 }
 variable tfe_workspace_name {
   type = string
