@@ -20,7 +20,7 @@ variable repository_description {
   default = "Created by Terraform Enterprise."
 }
 variable repository_is_private {
-  type = boolean
+  type = bool
   description = "Whether the repository should be private."
   default = false
 }
