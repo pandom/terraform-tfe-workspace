@@ -24,21 +24,21 @@ variable repository_is_private {
   description = "Whether the repository should be private."
   default = "False"
 }
-variable workspace_name {
+variable tfe_workspace_name {
   type = string
   description = "The name of the Terraform Enterprise Workspace. Cannot contain spaces."
 }
-variable org_name {
+variable tfe_org_name {
   type = string
   description = "The Terraform Enterprise organisation to create the workspace within."
 }
-variable auto_apply {
+variable tfe_auto_apply {
   type = string
   description = "Determines whether manual intervention is required to move from 'plan' to 'apply'."
   default = "True"
 
 }
-variable branch {
+variable repository_branch {
   type = string
   description = "Set the branch to monitor for changes that will trigger a Terraform run."
   default = "master"
