@@ -6,8 +6,9 @@ Sample usage:
 
 ```
 module "my-repo" {
+  oauth_token_id         = var.oauth_token_id 
   source                 = "tfe.humblelab.com/demos/management/workspace"
-  version                = "0.0.2"
+  version                = "0.0.4"
   repository_owner       = "Grant Orchard"
   repository_name        = "grim repo"
   repository_slug        = "grim-repo"
@@ -17,5 +18,7 @@ module "my-repo" {
   tfe_auto_apply         = "True"
 }
 ```
+
+Please use the exact text for the first two lines, and check for the most recent module version. All other variables should be entered according to your requirements.
 
 
