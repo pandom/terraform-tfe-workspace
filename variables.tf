@@ -13,16 +13,17 @@ variable repository_slug {
 variable repository_project_key {
   type = string
   description = "The name of the BitBucket project under which to create this repository."
+  default = "DEMOS"
 }
 variable repository_description {
   type = string
   description = "Adds a description to both the newly created BitBucket repository and Terraform Enterprise workspace."
   default = "Created by Terraform Enterprise."
 }
-variable repository_is_private {
+variable repository_is_public {
   type = bool
-  description = "Whether the repository should be private."
-  default = false
+  description = "Whether the repository should be public."
+  default = true
 }
 variable tfe_workspace_name {
   type = string
