@@ -11,7 +11,7 @@ resource tfe_workspace "this" {
   organization = var.tfe_org_name
   auto_apply   = var.tfe_auto_apply
   vcs_repo {
-    identifier = "${bitbucketserver_repository.this.key}/${bitbucketserver_repository.this.slug}"
+    identifier = "${var.repository_project_key}/${bitbucketserver_repository.this.slug}"
     branch     = var.repository_branch
     oauth_token_id = var.oauth_token_id
   }
