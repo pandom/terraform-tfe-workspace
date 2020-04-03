@@ -44,3 +44,13 @@ variable repository_private {
   type = bool
   default = false
 }
+
+variable env_var {
+  type = map
+  default = {}
+}
+
+variable tf_var {
+  type = map
+  default = {}
+}
