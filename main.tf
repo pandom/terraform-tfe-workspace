@@ -21,3 +21,23 @@ resource github_repository "this" {
     repository = var.template_repository_name
   }
 }
+
+resource tfe_variable "env" {
+  for_each var.env_var {
+    key          = each.key
+    value        = each.value
+    category     = "env"
+    workspace_id = tfe_workspace.this.id
+    description  = ""
+  }
+}
+
+resource tfe_variable "tf" {
+  for_each var.env_var {
+    key          = each.key
+    value        = each.value
+    category     = "terraform"
+    workspace_id = tfe_workspace.this.id
+    description  = ""
+  }
+}
