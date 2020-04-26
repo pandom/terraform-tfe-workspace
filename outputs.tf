@@ -1,3 +1,4 @@
-output workspace_id {
-  value = tfe_workspace.this.id
+output github_repo {
+  value = github_repository.this.http_clone_url
 }
+

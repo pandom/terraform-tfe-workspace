@@ -33,11 +33,12 @@ variable tfe_org_name {
 
 variable tfe_workspace_name {
   type = string
+  default = ""
 }
 
 variable tfe_auto_apply {
   type = bool
-  default = true
+  default = false
 }
 
 variable repository_private {
@@ -54,3 +55,4 @@ variable tf_var {
   type = map
   default = {}
 }
+

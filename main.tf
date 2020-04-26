@@ -1,5 +1,9 @@
+# Environment variables for the TFE provider:
+# TFE_TOKEN
+# TFE_HOSTNAME
+
 resource tfe_workspace "this" {
-  name         = var.tfe_workspace_name
+  name         = var.tfe_workspace_name != "" ? var.tfe_workspace_name : var.repository_name
   organization = var.tfe_org_name
   auto_apply   = var.tfe_auto_apply
 
@@ -23,21 +27,21 @@ resource github_repository "this" {
 }
 
 resource tfe_variable "env" {
-  for_each var.env_var {
-    key          = each.key
-    value        = each.value
-    category     = "env"
-    workspace_id = tfe_workspace.this.id
-    description  = ""
-  }
+  for_each     = var.env_var
+  key          = each.key
+  value        = each.value["value"]
+  sensitive    = each.value["sensitive"]
+  category     = "env"
+  workspace_id = tfe_workspace.this.id
+  description  = ""
 }
 
 resource tfe_variable "tf" {
-  for_each var.env_var {
-    key          = each.key
-    value        = each.value
-    category     = "terraform"
-    workspace_id = tfe_workspace.this.id
-    description  = ""
-  }
+  for_each     = var.tf_var
+  key          = each.key
+  value        = each.value["value"]
+  sensitive    = each.value["sensitive"]
+  category     = "terraform"
+  workspace_id = tfe_workspace.this.id
+  description  = ""
 }

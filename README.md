@@ -1,6 +1,6 @@
-This module should be used for the onboarding of new workspaces in Terraform Enterprise.
+This module can be used for the onboarding of new workspaces in Terraform Cloud.
 
-It will create a repository in the corporate BitBucket instance, create a Workspace in Terraform Enterprise, and connect it to the newly created repository.
+It will create a repository in Github, create a Workspace in Terraform Cloud, and connect it to the newly created repository.
 
 Sample usage:
 
