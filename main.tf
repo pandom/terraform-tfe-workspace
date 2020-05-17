@@ -8,13 +8,14 @@ resource tfe_workspace "this" {
   auto_apply   = var.tfe_auto_apply
 
   vcs_repo {
-    identifier = github_repository.this.full_name
+    identifier = var.create_repo = true ? github_repository.this[0].full_name : data.github_repository.this[0].full_name
     branch     = var.repository_branch
     oauth_token_id = var.oauth_token_id
   }
 }
 
 resource github_repository "this" {
+  count       = var.create_repo = true ? 1 : 0
   name        = var.repository_name
   description = var.repository_description
 
@@ -24,6 +25,11 @@ resource github_repository "this" {
     owner = var.template_repository_owner
     repository = var.template_repository_name
   }
+}
+
+data github_repository "this" {
+  var.create_repo = false ? 1 : 0
+  name = var.repository_name
 }
 
 resource tfe_variable "env" {

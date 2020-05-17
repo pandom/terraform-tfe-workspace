@@ -56,3 +56,7 @@ variable tf_var {
   default = {}
 }
 
+variable create_repo {
+  type = bool
+  default = true
+}
