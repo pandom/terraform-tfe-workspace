@@ -8,14 +8,14 @@ resource tfe_workspace "this" {
   auto_apply   = var.tfe_auto_apply
 
   vcs_repo {
-    identifier = var.create_repo = true ? ${github_repository.this[0].full_name} : ${data.github_repository.this[0].full_name}
+    identifier = var.create_repo == true ? github_repository.this[0].full_name : data.github_repository.this[0].full_name
     branch     = var.repository_branch
     oauth_token_id = var.oauth_token_id
   }
 }
 
 resource github_repository "this" {
-  count       = var.create_repo = true ? 1 : 0
+  count       = var.create_repo == true ? 1 : 0
   name        = var.repository_name
   description = var.repository_description
 
@@ -28,7 +28,7 @@ resource github_repository "this" {
 }
 
 data github_repository "this" {
-  var.create_repo = false ? 1 : 0
+  count = var.create_repo == false ? 1 : 0
   name = var.repository_name
 }
 
@@ -39,7 +39,6 @@ resource tfe_variable "env" {
   sensitive    = each.value["sensitive"]
   category     = "env"
   workspace_id = tfe_workspace.this.id
-  description  = ""
 }
 
 resource tfe_variable "tf" {
@@ -49,5 +48,4 @@ resource tfe_variable "tf" {
   sensitive    = each.value["sensitive"]
   category     = "terraform"
   workspace_id = tfe_workspace.this.id
-  description  = ""
 }
