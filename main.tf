@@ -8,7 +8,7 @@ resource tfe_workspace "this" {
   auto_apply   = var.tfe_auto_apply
 
   vcs_repo {
-    identifier = var.create_repo = true ? github_repository.this[0].full_name : data.github_repository.this[0].full_name
+    identifier = var.create_repo = true ? ${github_repository.this[0].full_name} : ${data.github_repository.this[0].full_name}
     branch     = var.repository_branch
     oauth_token_id = var.oauth_token_id
   }
