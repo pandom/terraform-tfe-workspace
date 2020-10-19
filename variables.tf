@@ -1,6 +1,6 @@
 variable template_repository_owner {
   type = string
-  default = "grantorchard"
+  default = "burkey"
 }
 
 variable template_repository_name {
@@ -28,7 +28,7 @@ variable oauth_token_id {
 
 variable tfe_org_name {
   type = string
-  default = "grantorchard"
+  default = "burkey"
 }
 
 variable tfe_workspace_name {
