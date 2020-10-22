@@ -1,6 +1,6 @@
 variable template_repository_owner {
   type = string
-  default = "burkey"
+  default = "pandom"
 }
 
 variable template_repository_name {
