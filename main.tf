@@ -6,7 +6,7 @@ resource tfe_workspace "this" {
   name         = var.tfe_workspace_name != "" ? var.tfe_workspace_name : var.repository_name
   organization = var.tfe_org_name
   auto_apply   = var.tfe_auto_apply
-  agent_pool_id =  var.use_agent_pool == true ? local.agent_pool_id.id
+  agent_pool_id =  var.use_agent_pool == true ? local.agent_pool.id : local.agent_pool.id
 
   vcs_repo {
     identifier = var.create_repo == true ? github_repository.this[0].full_name : data.github_repository.this[0].full_name
