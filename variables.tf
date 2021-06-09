@@ -3,6 +3,16 @@ variable template_repository_owner {
   default = "pandom"
 }
 
+variable "execution_mode" {
+  type = string
+  default = "remote"
+  
+}
+
+variable "agent_pool_id" {
+  
+}
+
 variable template_repository_name {
   type = string
   default = "terraform-repository-template"
